@@ -1,0 +1,32 @@
+<table>
+    <thead>
+      <th>deck used</th>
+      <th>number guessed</th>
+      <th>number correct</th>
+      <th>number incorrect</th>
+    </thead>
+    <tbody>
+      <% current_user.rounds.each do |round| %>
+        <% right_count = 0 %>
+        <% wrong_count = 0 %>
+        <% Round.find(round.id).guesses.each do |guess| %>
+        <% if guess.completed == true %>
+        <% right_count += 1 %>
+        <% else %>
+        <% wrong_count += 1 %>
+        <% end %>
+        <% end %>
+        <tr>
+          <td><%= round.deck_id %></td>
+          <td><%= right_count + wrong_count %></td>
+          <td><%= right_count %></td>
+          <td><%= wrong_count %></td>  
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <div><h2>No posts to display.</h2></div> 
+
+
+

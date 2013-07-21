@@ -1,0 +1,11 @@
+<h1 class="center"><%= @deck.name %></h1>
+<div class="center flashcard">
+  <% if @guess.completed == true %>
+      <h2>Great Job!</h1>
+      <p>The answer is: <%= @card.back %></p>
+    <% else %>
+      <h2>Oops, better luck next time.</h1>
+      <p>The answer is: <%= @card.back %></p>
+  <% end %>
+  <a href="/rounds/<%= current_round.id %>/show_front/<%= @card.id + 1 %>" >Next →</a>
+</div>

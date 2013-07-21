@@ -1,0 +1,13 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<h1>Update Your Information</h1>
+
+<form action="/edit" method='POST'>
+  <input type="text" name="person[name]" value='<%= current_user.name %>'>
+  <input type="text" name="person[email]" value='<%= current_user.email %>'>
+  <input type="submit"  value='Create Login' > 
+</form>

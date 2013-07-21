@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <!--Font File-->
+  <link rel="stylesheet" href="/css/webfonts.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>FLASHCARDS</title>
+</head>
+<body>
+  <div class="wrapper">
+  <div class="header">
+    <a class="logo" href="/" alt="home">Flashcards</a>
+    
+    <div class="top_nav">
+      <% if current_user == true %>
+      <a href="/users/<%= current_user.id %>" alt="Your Profile Page">Profile</a> | <a href="/logout" alt="logout">Logout</a> 
+      <% else %>
+      <a href="/create_user" alt="Sign Up">Sign Up</a> | <a href="/login" alt="login">Login</a>
+      <% end %>
+    </div>
+
+  </div><!--header close-->
+  <div class="content">
+  <%= yield %>
+  </div><!--content close-->
+</div> <!--wrapper close-->
+</body>
+</html>
