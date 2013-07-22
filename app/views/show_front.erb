@@ -1,9 +1,11 @@
 <h1 class="center"><%= @deck.name %></h1>
 
-<div class="flashcard center">
-  <h2><%= @card.front %></h2>
-  <form action="/rounds/<%= current_round.id %>/show_back/<%= @card.id %>" method="POST">
-  <input class="center" type="text" name="guess" placeholder="Enter Your Guess">
-  <input class="form-button" type="submit" value="Check it...">
-  </form>
+<div id="flashcard" class="flashcard center">
+  <div id="flashcard_contents">
+    <h2><%= @card.front %></h2>
+    <form action="/rounds/<%= current_round.id %>/show_back/<%= @card.id %>" method="POST">
+    <input class="center" type="text" name="guess" placeholder="Enter Your Guess">
+    <input id="check_card" class="form-button" type="submit" value="Check it...">
+    </form>
+  </div>
 </div>

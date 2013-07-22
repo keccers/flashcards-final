@@ -1,9 +1,10 @@
-<h1>This is the create users page</h1>
+<h1>Welome to Flashcards! Thanks For Joining Us!</h1>
 <% if @errors %>
-  <% @errors.each do |error| %>
-    <p class="errors"><%= error %></p>
+  <% @errors.each do |key, value| %>
+    <p class="errors"><%= value %></p>
   <% end %>
 <% end %>
+
 
 <form action="/create_user" method='POST'>
   <input type="text" name="person[name]"          placeholder='Your name'>

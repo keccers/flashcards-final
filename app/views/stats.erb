@@ -1,24 +1,33 @@
-<a href="/:user_id/edit" alt="Edit your profile">Edit your Profile</a>
-
-
-
 <% if current_user.rounds.any? %>
-  <h1>User Profile & Stats</h1>
-  <div class="round_stats">
-    <h2 class="center">Last Five Rounds</h2>
-    <hr class="divider" />
-   <% current_user.rounds.each do |round| %>
-     <p>Round <%= round.id %>. -- <%= Deck.find(round.deck_id).name %></p>
-     <p>Out of <%= Guess.where(round_id: round.id).count %> total cards, you got  <%= Guess.where(round_id: round.id).right.count %> right and <%= Guess.where(round_id: round.id).wrong.count %> wrong.</p>
-   <% end %>
- </div>
+  
+    <div class="user_info">
+      <h1><%= current_user.name %>'s Profile & Stats</h1>
+      <p><span class="bold">Email address:</span> <span class="highlight"><%= current_user.email %><span>
+    </div>
 
-   <div class="overall_stats">
-     <h2 class="center">Overall Stats</h2>
-     <hr class="divider" />
-     <img src="<%= @alltime.to_url %>" alt="All Time Stats" />
-     <p>Over all games, you've made <%= (current_user.guesses.right.count/current_user.guesses.all.count.to_f)*100 %>% guesses correctly, <%= (current_user.guesses.wrong.count/current_user.guesses.all.count.to_f)*100.round %>% guesses incorrectly.</p>
-  </div>
-  <% else %>
+    <div class="round_stats">
+      <h2 class="center">Last Five Rounds</h2>
+      <hr class="divider" />
+      <ol>
+     <% current_user.rounds.last_five.reverse.each do |round| %>
+       <li class="bold"><%= Deck.find(round.deck_id).name %></li>
+       <ul>
+       <li>Out of <%= Guess.where(round_id: round.id).count %> total cards answered, you got  <%= Guess.where(round_id: round.id).right.count %> right and <%= Guess.where(round_id: round.id).wrong.count %> wrong.</li>
+     </uL><br/>
+     <% end %>
+     </ol>
+   </div>
+
+     <div class="overall_stats">
+       <h2 class="center">Overall Stats</h2>
+       <hr class="divider" />
+       <img src="<%= @alltime.to_url %>" alt="All Time Stats" />
+       <p>Over all games, you've made <%= (current_user.guesses.right.count/current_user.guesses.all.count.to_f)*100 %>% guesses correctly, <%= (current_user.guesses.wrong.count/current_user.guesses.all.count.to_f)*100.round %>% guesses incorrectly.</p>
+    </div>
+<% else %>
+    <div class="user_info">
+      <h1>Welcome, <%= current_user.name %>!</h1>
+      <p><span class="bold">Email address:</span> <span class="highlight"><%= current_user.email %><span>
+    </div>
   <h2 class="center">You haven't gone through any flashcards yet.<br/><a href="/" alt="Take me home!">Why not give it a go?</a></h2>
 <% end %>

@@ -1,6 +1,10 @@
 get "/" do
-  @rounds = Round.all
-  erb :index
+  if current_user
+    @rounds = Round.all
+    erb :index
+  else
+    redirect '/welcome'
+  end
 end
 
 post "/start" do 
@@ -30,9 +34,17 @@ post "/rounds/:round_id/show_back/:id" do
   @guess = current_round.guesses.build
   @guess.card = @card
   if @guess.answer(params[:guess])
-    erb :show_back
+    if request.xhr?
+      erb :show_back, layout: false
+    else
+      erb :show_back
+    end
   else
     @error = @guess.errors
     erb :show_front
   end
+end
+
+get '/welcome' do
+  erb :welcome
 end

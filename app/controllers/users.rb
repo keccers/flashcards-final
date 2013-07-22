@@ -43,12 +43,13 @@ post '/login' do
 end
 
 get "/logout" do
-  session[:id] = nil
+  session[:user_id] = nil
   redirect to "/"
 end
 
 get '/users/:user_id' do
   if User.find_by_id(params[:user_id]) == current_user
+
     @alltime = GChart.pie do |g|
       g.data = [current_user.guesses.right.count, current_user.guesses.wrong.count]
       g.colors = ['A1D8B1', 'EDFCC2']
@@ -57,6 +58,10 @@ get '/users/:user_id' do
     end 
     erb :stats
   else 
-    redirect '/lol_nope'
+    redirect '/lolnope'
   end
+end
+
+get '/lolnope' do
+  erb :lol_nope
 end

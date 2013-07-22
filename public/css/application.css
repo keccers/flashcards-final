@@ -10,8 +10,8 @@ html, body {
 
 .wrapper {
   background-color: #fff;
-  height: 100%;
   margin:auto;
+  min-height: 1000px;
   padding: 0px 20px;
   width: 1000px;
   -webkit-box-shadow: 2px 2px 2px 1px rgba(22, 255, 233, .2);
@@ -32,6 +32,10 @@ a {
   text-decoration: none;
 }
 
+.bold {
+  font-family: 'Gotham Medium', sans-serif;
+}
+
 .center {
   text-align: center;
 }
@@ -42,6 +46,10 @@ a {
 
 .divider {
   border-top: 1px dotted #455655;
+}
+
+.highlight {
+  color: #60BDAF;
 }
 
 /*HEADER*/
@@ -70,11 +78,12 @@ a {
 
 
 /*DECK HOME PAGE*/
-.deck {
-  display: inline;
+.all-decks {
+  margin: 10px 0px;
 }
 
 .deck {
+  display: inline;
   margin: 0px 10px;
 }
 
@@ -90,6 +99,7 @@ a {
   border-radius: 15px;
   height: 200px;
   width: 200px;
+
 }
 
 .deck-button:hover {
@@ -100,8 +110,10 @@ a {
 
 /*CONTENT*/
 .content {
+  display: inline-block;
   height: 100%;
   margin: 10px 0px;
+  padding-bottom: 50px;
   width: 100%;
 }
 
@@ -112,6 +124,7 @@ a {
   border-radius: 15px;
   -webkit-box-shadow: 3px 2px 3px 2px rgba(188, 187, 184, .75);
   box-shadow: 3px 2px 3px 2px rgba(188, 187, 184, .75);
+  height: 150px;
   margin: auto;
   padding: 40px 0px;
   width: 600px;
@@ -133,6 +146,38 @@ a {
   padding: 5px 0px;
   text-transform: uppercase;
   width: 456px;
+}
+
+/*STATS PAGE*/
+
+.round_stats, .overall_stats {
+  margin: 60px 0px;
+  position: relative;
+}
+
+.user_info h1, .user_info p {
+  display: inline;
+}
+
+.user_info p {
+  float: right;
+  margin-top: 8px;
+}
+
+
+.round_stats ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*FOOTER*/
+.footer {
+  background-color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  height: 50px; /* Define height of the footer */
+  margin: auto;
 }
 
 /*

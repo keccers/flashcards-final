@@ -4,10 +4,10 @@
   <% end %>
 <% end %>
 
-<h1>Update Your Information</h1>
+<h1 class="center">Update Your Information</h1>
 
-<form action="/edit" method='POST'>
+<form class="center" action="/edit" method='POST'>
   <input type="text" name="person[name]" value='<%= current_user.name %>'>
   <input type="text" name="person[email]" value='<%= current_user.email %>'>
-  <input type="submit"  value='Create Login' > 
+  <input class="form-button" type="submit"  value='Update Your Information' > 
 </form>

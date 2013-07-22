@@ -21,21 +21,21 @@
 </head>
 <body>
   <div class="wrapper">
-  <div class="header">
-    <a class="logo" href="/" alt="home">Flashcards</a>
-    
-    <div class="top_nav">
-      <% if current_user == true %>
-      <a href="/users/<%= current_user.id %>" alt="Your Profile Page">Profile</a> | <a href="/logout" alt="logout">Logout</a> 
-      <% else %>
-      <a href="/create_user" alt="Sign Up">Sign Up</a> | <a href="/login" alt="login">Login</a>
-      <% end %>
-    </div>
+    <div class="header">
+      <a class="logo" href="/" alt="home">Flashcards</a>
+      
+      <div class="top_nav">
+        <% if current_user %>
+        <span>Hi, <%= current_user.name %>! | <a href="/users/<%= current_user.id %>" alt="Your Profile Page">Your Stats</a> | <a href="/<%= current_user.id %>/edit" alt="Edit your profile">Edit your Profile</a> | <a href="/logout" alt="logout">Logout</a> 
+        <% else %>
+        <a href="/create_user" alt="Sign Up">Sign Up</a> | <a href="/login" alt="login">Login</a>
+        <% end %>
+      </div>
 
-  </div><!--header close-->
-  <div class="content">
-  <%= yield %>
-  </div><!--content close-->
+    </div><!--header close-->
+    <div class="content">
+    <%= yield %>
+    </div><!--content close-->
 </div> <!--wrapper close-->
 </body>
 </html>
