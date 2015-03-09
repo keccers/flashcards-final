@@ -21,8 +21,6 @@ require "sinatra/reloader" if development?
 require 'erb'
 require 'gchart'
 
-require 'debugger'
-require 'pry'
 require 'bcrypt'
 require 'csv'
 
