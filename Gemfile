@@ -20,10 +20,3 @@ gem 'shotgun'
 
 gem 'bcrypt-ruby'
 gem 'gchart'
-
-group :test do
-  gem 'debugger'
-  gem 'faker'
-  gem 'rspec'
-  gem 'pry'
-end
