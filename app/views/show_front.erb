@@ -4,8 +4,8 @@
   <div id="flashcard_contents">
     <h2><%= @card.front %></h2>
     <form action="/rounds/<%= current_round.id %>/show_back/<%= @card.id %>" method="POST">
-    <input class="center" type="text" name="guess" placeholder="Enter Your Guess">
-    <input id="check_card" class="form-button" type="submit" value="Check it...">
+    	<input class="center" type="text" name="guess" placeholder="Enter Your Guess">
+    	<input id="check_card" class="form-button" type="submit" value="Check it...">
     </form>
   </div>
 </div>

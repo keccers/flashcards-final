@@ -13,10 +13,10 @@ post '/create_user' do
   end 
 end
 
-get '/:user_id/edit' do 
+get '/:user_id/edit' do
   if current_user
     erb :edit_user
-  else 
+  else
     redirect '/lol_nope'
   end
 end
@@ -55,7 +55,7 @@ get '/users/:user_id' do
       g.colors = ['A1D8B1', 'EDFCC2']
       g.width = 700
       g.legend = ["Right", "Wrong"]
-    end 
+    end
     erb :stats
   else 
     redirect '/lolnope'

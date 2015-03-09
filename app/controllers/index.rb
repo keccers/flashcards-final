@@ -7,9 +7,9 @@ get "/" do
   end
 end
 
-post "/start" do 
+post "/start" do
   if @deck = Deck.find(params[:deck])
-    @round = current_user.rounds.build 
+    @round = current_user.rounds.build
     @round.deck = @deck
     @round.save
     session[:round] = @round.id
@@ -28,7 +28,7 @@ get "/rounds/:round_id/show_front/:id" do
   end
 end
 
-post "/rounds/:round_id/show_back/:id" do 
+post "/rounds/:round_id/show_back/:id" do
   @card = current_round.deck.cards.find(params[:id])
   @deck = current_round.deck
   @guess = current_round.guesses.build
